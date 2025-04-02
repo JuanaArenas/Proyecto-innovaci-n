@@ -1,8 +1,8 @@
 import oracledb  
 import os
 from dotenv import load_dotenv
-
-# Cargar variables de entorno desde un archivo .env
+ 
+# Cargar variables de entorno virtual desde un archivo .env
 load_dotenv()
 
 DB_USER = os.getenv("DB_USER", "system")
