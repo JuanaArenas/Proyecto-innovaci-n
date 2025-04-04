@@ -54,6 +54,40 @@ def get_productos(id):
     producto = Producto.query.get(id)
     return jsonify([producto.to_dict() if producto else ('Producto no encontrado'), 404])	
 
+
+
+# RUTA PARA CREAR UN NUEVO PRODUCTO
+@app.route('/productos', methods=['POST'])
+def create_producto():
+    data = request.get_json()
+    nuevo_producto = Producto(nombre=data['nombre'], precio=data['precio'])
+    db.session.add(nuevo_producto)
+    db.session.commit()
+    return jsonify(nuevo_producto.to_dict()), 201
+
+# RUTA PARA ACTUALIZAR UN PRODUCTO
+@app.route('/productos/<int:id>', methods=['PUT'])
+def update_producto(id):
+    data = request.get_json()
+    producto = Producto.query.get(id)
+    if not producto:
+        return jsonify({'message': 'Producto no encontrado'}), 404
+    producto.nombre = data['nombre']
+    producto.precio = data['precio']
+    db.session.commit()
+    return jsonify(producto.to_dict())
+    
+# RUTA PARA ELIMINAR UN PRODUCTO
+@app.route('/productos/<int:id>', methods=['DELETE'])
+def delete_producto(id):
+    producto = Producto.query.get(id)
+    if not producto:
+        return jsonify({'message': 'Producto no encontrado'}), 404
+    db.session.delete(producto) 
+    db.session.commit()
+    return jsonify({'message': 'Producto eliminado'}), 200    
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
