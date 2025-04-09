@@ -47,7 +47,7 @@ function App() {
           value={precio}
           onChange={(e) => setPrecio(e.target.value)}
         />
-        <button className="bg-blue-500 text-white p-2 rounded" onClick={agregarProducto}>
+        <button className="bg-pink-700 text-white p-2 rounded" onClick={agregarProducto}>
           Agregar
         </button>
       </div>

@@ -48,12 +48,11 @@ def get_productos():
     productos = Producto.query.all()
     return jsonify([p.to_dict() for p in productos])
     
-# RUTA PARA  PARA OBTENER UN  PRODUCTO POR ID
-@app.route('/productos/<int:id>', methods=['GET'])
-def get_productos(id):
+# RUTA PARA  OBTENER UN  PRODUCTO POR ID
+@app.route('/producto/<int:id>', methods=['GET'])
+def get_producto_by_id(id):
     producto = Producto.query.get(id)
     return jsonify([producto.to_dict() if producto else ('Producto no encontrado'), 404])	
-
 
 
 # RUTA PARA CREAR UN NUEVO PRODUCTO
@@ -76,7 +75,7 @@ def update_producto(id):
     producto.precio = data['precio']
     db.session.commit()
     return jsonify(producto.to_dict())
-    
+
 # RUTA PARA ELIMINAR UN PRODUCTO
 @app.route('/productos/<int:id>', methods=['DELETE'])
 def delete_producto(id):
@@ -89,7 +88,7 @@ def delete_producto(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True ,host='0.0.0.0', port=5000)
 
 
     
