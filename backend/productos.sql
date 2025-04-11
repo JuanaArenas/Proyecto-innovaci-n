@@ -8,3 +8,4 @@ CREATE TABLE productos (
 INSERT INTO productos (nombre, precio) VALUES ('Galleta', 5.99);
 
 DROP TABLE productos;
+

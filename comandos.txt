@@ -1,0 +1,9 @@
+docker start oracle-docker
+cd backend 
+source sustentacionj/bin/activate
+python app.py
+cd ..
+cd frontend
+npm start
+
+crtl + c = detener ejecuciòn de backend y frontend
