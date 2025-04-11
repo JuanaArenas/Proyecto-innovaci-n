@@ -4,6 +4,7 @@ cd backend
 source sustentacionj/bin/activate
 python app.py
 cd ..
+python app.py
 
 cd frontend
 npm start
