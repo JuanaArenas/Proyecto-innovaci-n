@@ -6,15 +6,17 @@ function App() {
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
 
+  var url = "/productos";
+
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/productos").then((res) => {
+    axios.get(url).then((res) => {
       setProductos(res.data);
     });
   }, []);
 
   const agregarProducto = () => {
     axios
-      .post("http://127.0.0.1:5000/productos", { nombre, precio })
+      .post(url, { nombre, precio })
       .then((res) => {
         setProductos([...productos, res.data]);
         setNombre("");
@@ -23,7 +25,7 @@ function App() {
   };
 
   const eliminarProducto = (id) => {
-    axios.delete(`http://127.0.0.1:5000/productos/${id}`).then(() => {
+    axios.delete(url + `/${id}`).then(() => {
       setProductos(productos.filter((p) => p.id !== id));
     });
   };

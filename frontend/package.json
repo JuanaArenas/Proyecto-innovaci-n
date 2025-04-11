@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://silver-guide-449w56p7667fq64p-5000.app.github.dev", 
   "dependencies": {
     "@tailwindcss/vite": "^4.1.0",
     "@testing-library/dom": "^10.4.0",
