@@ -70,10 +70,10 @@ def update_producto(id):
 # RUTA PARA ELIMINAR UN PRODUCTO
 @app.route('/productos/<int:id>', methods=['DELETE'])
 def delete_producto(id):
-    productos = productos.query.get(id)
+    productos = Productos.query.get(id)
     if not productos:
         return jsonify({'message': 'Producto no encontrado'}), 404
-    db.session.delete(Productos) 
+    db.session.delete(productos) 
     db.session.commit()
     return jsonify({'message': 'Producto eliminado'}), 200    
 
