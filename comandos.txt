@@ -9,3 +9,4 @@ cd frontend
 npm start
 
 crtl + c = detener ejecuciòn de backend y frontend
+
