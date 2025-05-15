@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
+
+
   const [productos, setProductos] = useState([]);
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
@@ -52,6 +54,7 @@ function App() {
         <button className="bg-pink-700 text-white p-2 rounded" onClick={agregarProducto}>
           Agregar
         </button>
+        
       </div>
 
       <ul className="mt-4">
